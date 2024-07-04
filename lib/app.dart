@@ -12,9 +12,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: F.title,
-      theme: AppThemeData.dark().themeData,
+      theme: AppThemeData.light().themeData,
       darkTheme: AppThemeData.dark().themeData,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       home: _flavorBanner(
         child: MyHomePage(),
         show: kDebugMode,
