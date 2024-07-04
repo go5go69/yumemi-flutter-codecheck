@@ -1,0 +1,31 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+            "name": "dev",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main_dev.dart",
+            "args": [
+				"--debug",
+                "--flavor",
+                "dev",
+                "--dart-define=FLAVOR=dev",
+            ]
+        },
+        {
+            "name": "prd",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main_prd.dart",
+            "args": [
+				"--debug",
+                "--flavor",
+                "prd",
+                "--dart-define=FLAVOR=prd",
+            ]
+        }
+	]
+}

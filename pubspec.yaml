@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_flavorizr: ^2.2.3
 
 dev_dependencies:
   flutter_test:
@@ -33,3 +34,21 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+
+# 更新した場合は、`flutter pub run flutter_flavorizr` を実行
+flavorizr:
+  flavors:
+    dev:
+      app:
+        name: GitHub Search Dev
+      android:
+        applicationId: com.example.github_search.dev
+      ios:
+        bundleId: com.example.github_search.dev
+    prd:
+      app:
+        name: GitHub Search
+      android:
+        applicationId: com.example.github_search
+      ios:
+        bundleId: com.example.github_search
