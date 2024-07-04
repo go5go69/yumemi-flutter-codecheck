@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:yumemi_flutter_codecheck/themes/app_theme_data.dart';
 
 import 'flavors.dart';
 import 'pages/my_home_page.dart';
@@ -11,9 +12,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: F.title,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: AppThemeData.light().themeData,
+      darkTheme: AppThemeData.dark().themeData,
+      themeMode: ThemeMode.light,
       home: _flavorBanner(
         child: MyHomePage(),
         show: kDebugMode,
