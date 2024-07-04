@@ -1,28 +1,21 @@
-# This file configures the analyzer, which statically analyzes Dart code to
-# check for errors, warnings, and lints.
-#
-# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
-# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
-# invoked from the command line by running `flutter analyze`.
+# https://pub.dev/packages/lints
+include: package:lints/recommended.yaml
 
-# The following line activates a set of recommended lints for Flutter apps,
-# packages, and plugins designed to encourage good coding practices.
-include: package:flutter_lints/flutter.yaml
+analyzer:
+  errors:
+    missing_required_param: warning # 必須のパラメータが欠けている場合に警告
+    missing_return: warning # 関数やメソッドが戻り値を持たない場合に警告
+  language:
+    strict-casts: true # 安全でないキャストを防ぐ
+    strict-inference: true # Dartが自動で推論できない場合に型を明示的に指定することを要求
+    strict-raw-types: true # ジェネリクスの型パラメータが省略された場合に警告
 
 linter:
-  # The lint rules applied to this project can be customized in the
-  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
-  # included above or to enable additional rules. A list of all available lints
-  # and their documentation is published at https://dart.dev/lints.
-  #
-  # Instead of disabling a lint rule for the entire project in the
-  # section below, it can also be suppressed for a single line of code
-  # or a specific dart file by using the `// ignore: name_of_lint` and
-  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
-  # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
-
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+    # includeされているルール: https://github.com/dart-lang/lints/blob/main/lib/recommended.yaml
+    - avoid_print # print文の使用を避ける
+    - constant_identifier_names # 定数名はすべて大文字でスネークケースを使う
+    - avoid_as # 'as' キーワードの使用を避ける
+    - prefer_const_constructors # constコンストラクタを推奨
+    - prefer_const_literals_to_create_immutables # 不変リスト、マップ、セットをconstで作成することを推奨
+    
