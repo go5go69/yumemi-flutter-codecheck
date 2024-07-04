@@ -1,44 +1,25 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yumemi_flutter_codecheck/presentations/routes/app_router.dart';
 import 'package:yumemi_flutter_codecheck/themes/app_theme_data.dart';
 
 import 'flavors.dart';
-import 'pages/my_home_page.dart';
 
-class App extends StatelessWidget {
+class App extends ConsumerWidget {
   const App({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final goRouter = ref.watch(goRouterProvider);
+
+    return MaterialApp.router(
       title: F.title,
       theme: AppThemeData.light().themeData,
       darkTheme: AppThemeData.dark().themeData,
       themeMode: ThemeMode.light,
-      home: _flavorBanner(
-        child: MyHomePage(),
-        show: kDebugMode,
-      ),
+      routerDelegate: goRouter.routerDelegate,
+      routeInformationParser: goRouter.routeInformationParser,
+      routeInformationProvider: goRouter.routeInformationProvider,
     );
   }
-
-  Widget _flavorBanner({
-    required Widget child,
-    bool show = true,
-  }) =>
-      show
-          ? Banner(
-              child: child,
-              location: BannerLocation.topStart,
-              message: F.name,
-              color: Colors.green.withOpacity(0.6),
-              textStyle: const TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 12.0,
-                  letterSpacing: 1.0),
-              textDirection: TextDirection.ltr,
-            )
-          : Container(
-              child: child,
-            );
 }
