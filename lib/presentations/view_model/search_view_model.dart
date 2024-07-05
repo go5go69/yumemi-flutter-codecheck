@@ -13,11 +13,14 @@ class SearchViewModel extends _$SearchViewModel {
     return null;
   }
 
+  final textInputController = TextEditingController();
+
   Future<void> onTapSearch() async {
     final githubResRepository = ref.watch(githubResRepositoryProvider);
 
-    final res =
-        await githubResRepository.fetch(RequestParam(q: 'flutter animation'));
+    final res = await githubResRepository.fetch(
+      RequestParam(q: textInputController.text),
+    );
     debugPrint('ITEM LENGTH: ${res.items.length}');
 
     state = res;
