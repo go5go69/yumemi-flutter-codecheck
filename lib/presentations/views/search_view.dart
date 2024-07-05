@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yumemi_flutter_codecheck/constants/app_sizes.dart';
 import 'package:yumemi_flutter_codecheck/presentations/view_model/search_view_model.dart';
 import 'package:yumemi_flutter_codecheck/presentations/views/widgets/view_template.dart';
 
@@ -23,7 +24,13 @@ class SearchView extends ConsumerWidget {
                   itemCount: pageState.items.length,
                   itemBuilder: (BuildContext context, int index) {
                     final item = pageState.items[index];
-                    return Text(item.name);
+                    return InkWell(
+                      onTap: () => pageNotifier.onTapItem(context, item),
+                      child: Container(
+                        padding: const EdgeInsets.all(Sizes.p12),
+                        child: Text(item.name),
+                      ),
+                    );
                   },
                 )
               : SliverList(

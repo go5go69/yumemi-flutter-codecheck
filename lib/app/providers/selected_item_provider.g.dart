@@ -1,26 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'search_view_model.dart';
+part of 'selected_item_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$searchViewModelHash() => r'f6d1028519b8ca322f39ee85682f755ad9d6fb95';
+String _$selectedItemNotifierHash() =>
+    r'd1b994fb1ccc9404c502c165b54110680d0cdcbd';
 
-/// See also [SearchViewModel].
-@ProviderFor(SearchViewModel)
-final searchViewModelProvider =
-    NotifierProvider<SearchViewModel, GitHubResponse?>.internal(
-  SearchViewModel.new,
-  name: r'searchViewModelProvider',
+/// See also [SelectedItemNotifier].
+@ProviderFor(SelectedItemNotifier)
+final selectedItemNotifierProvider =
+    NotifierProvider<SelectedItemNotifier, Item?>.internal(
+  SelectedItemNotifier.new,
+  name: r'selectedItemNotifierProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$searchViewModelHash,
+      : _$selectedItemNotifierHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$SearchViewModel = Notifier<GitHubResponse?>;
+typedef _$SelectedItemNotifier = Notifier<Item?>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
