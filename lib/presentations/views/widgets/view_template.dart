@@ -51,11 +51,15 @@ class ViewTemplate extends StatelessWidget {
       show: kDebugMode,
       child: Scaffold(
         appBar: appBar,
-        body: SafeArea(
-          bottom: bottomSafeArea,
-          child: Padding(
-            padding: viewPadding,
-            child: body,
+        body: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: SafeArea(
+            bottom: bottomSafeArea,
+            child: Padding(
+              padding: viewPadding,
+              child: body,
+            ),
           ),
         ),
       ),
