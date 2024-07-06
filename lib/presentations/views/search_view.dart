@@ -130,7 +130,7 @@ class SearchView extends ConsumerWidget {
             onSubmitted: (_) async => await onTapSearch(),
           ),
         ),
-        hasFocus
+        hasFocus || controller.text.isNotEmpty
             ? InkWell(
                 borderRadius: BorderRadius.circular(Sizes.p8),
                 onTap: () => onTapCancel(),
