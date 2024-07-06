@@ -23,7 +23,9 @@ class AppThemeData {
       textTheme: appTextTheme,
       // AppBar
       appBarTheme: AppBarTheme(
-        titleTextStyle: appTextTheme.titleSmall,
+        titleTextStyle: appTextTheme.titleSmall!.copyWith(
+          color: colorScheme.primary,
+        ),
         elevation: 0,
         shadowColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
