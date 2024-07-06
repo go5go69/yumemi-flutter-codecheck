@@ -36,4 +36,8 @@ class AppFixedColor {
   static const action = Color(0xFF057CFF);
   static const error = Color(0xFFFF334B);
   static const inactive = Color(0xFFCFCFCF);
+  // GitHub Color
+  static const issue = Color(0xFF40D663);
+  static const watcher = Color(0xFFFFD74D);
+  static const language = Color(0xFF9194A1);
 }
