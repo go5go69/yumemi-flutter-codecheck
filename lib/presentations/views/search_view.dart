@@ -103,9 +103,7 @@ class SearchView extends ConsumerWidget {
                 // TODO: <LOW> 3桁区切りにする
                 // 例) 1000000 => 1,000,000
                 '$count 件',
-                style: appTextTheme.bodySmall!.copyWith(
-                  color: Theme.of(context).colorScheme.primary,
-                ),
+                style: appTextTheme.bodySmall,
               )
             : const SizedBox.shrink(),
       ),
@@ -169,9 +167,9 @@ class SearchView extends ConsumerWidget {
     return SliverList.builder(
       itemCount: items.length,
       itemBuilder: (BuildContext context, int index) {
-        return ItemCard(
-          item: items[index],
+        return InkWell(
           onTap: () => onTap(context, items[index]),
+          child: ItemCard(item: items[index]),
         );
       },
     );
