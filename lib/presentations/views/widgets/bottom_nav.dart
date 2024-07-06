@@ -28,11 +28,11 @@ class _BottomNavigatorState extends State<BottomNavigator> {
         child: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_rounded),
+              icon: Icon(Icons.search),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_rounded),
+              icon: Icon(Icons.settings),
               label: '',
             ),
           ],
