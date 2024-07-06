@@ -6,8 +6,8 @@ class AppColorScheme {
     brightness: Brightness.light,
     primary: Color(0xFF0B080B),
     onPrimary: Color(0xFFFFFFFF),
-    secondary: Color(0xFFCFCFCF),
-    onSecondary: Color(0xFF140F1F),
+    secondary: Color(0xFFF0F0F0),
+    onSecondary: Color(0xFF999999),
     error: AppFixedColor.error,
     onError: Color(0xFFFFFFFF),
     surface: Color(0xFFFFFFFF),
@@ -20,18 +20,20 @@ class AppColorScheme {
     brightness: Brightness.dark,
     primary: Color(0xFFFFFFFF),
     onPrimary: Color(0xFF0B080B),
-    secondary: Color(0xFF444444),
-    onSecondary: Color(0xFFFFFFFF),
+    secondary: Color(0xFF505050),
+    onSecondary: Color(0xFF999999),
     error: AppFixedColor.error,
     onError: Color(0xFFFFFFFF),
     surface: Color(0xFF0B080B),
     onSurface: Color(0xFFFFFFFF),
-    outline: Color(0xFFB0B0B0),
+    outline: Color(0xFF505050),
   );
 }
 
 /// Lightモード, Darkモードに関係なく使用されるカラーアセット
 /// - Functionalカラーなど
 class AppFixedColor {
+  static const action = Color(0xFF057CFF);
   static const error = Color(0xFFFF334B);
+  static const inactive = Color(0xFFCFCFCF);
 }

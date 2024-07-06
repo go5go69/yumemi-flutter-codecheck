@@ -28,16 +28,14 @@ class _BottomNavigatorState extends State<BottomNavigator> {
         child: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_rounded),
+              icon: Icon(Icons.search),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_rounded),
+              icon: Icon(Icons.settings),
               label: '',
             ),
           ],
-          selectedItemColor: Theme.of(context).colorScheme.primary,
-          unselectedItemColor: Theme.of(context).colorScheme.secondary,
           currentIndex: _currentIndex,
           onTap: (index) => _onTabTapped(index),
         ),
