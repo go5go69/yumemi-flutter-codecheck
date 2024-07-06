@@ -169,9 +169,9 @@ class SearchView extends ConsumerWidget {
     return SliverList.builder(
       itemCount: items.length,
       itemBuilder: (BuildContext context, int index) {
-        return ItemCard(
-          item: items[index],
+        return InkWell(
           onTap: () => onTap(context, items[index]),
+          child: ItemCard(item: items[index]),
         );
       },
     );

@@ -3,6 +3,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:yumemi_flutter_codecheck/constants/app_sizes.dart';
 import 'package:yumemi_flutter_codecheck/themes/app_text_theme.dart';
 
+// TODO: <MID> enum化して、値に対応するlabelなどを管理するようにするか検討
+
+/// リポジトリの詳細を表示
 class ItemDetailContentCard extends StatelessWidget {
   final String assetPath;
   final String label;

@@ -18,7 +18,7 @@ class RepositoryDetailView extends ConsumerWidget {
       body: selectedItem != null
           ? Column(
               children: [
-                ItemCard(item: selectedItem, onTap: () {}),
+                ItemCard(item: selectedItem),
                 gapH16,
                 ItemDetailContentChip(
                   assetPath: 'assets/images/star.svg',
