@@ -36,8 +36,6 @@ class _BottomNavigatorState extends State<BottomNavigator> {
               label: '',
             ),
           ],
-          selectedItemColor: Theme.of(context).colorScheme.primary,
-          unselectedItemColor: Theme.of(context).colorScheme.secondary,
           currentIndex: _currentIndex,
           onTap: (index) => _onTabTapped(index),
         ),
