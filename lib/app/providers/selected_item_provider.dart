@@ -10,5 +10,11 @@ class SelectedItemNotifier extends _$SelectedItemNotifier {
     return null;
   }
 
+  /// state更新メソッド
   void updateState(Item item) => state = item;
+
+  /// test用にstateをリターン
+  Item? debugState() {
+    return state;
+  }
 }
