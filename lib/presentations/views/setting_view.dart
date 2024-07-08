@@ -7,10 +7,7 @@ class SettingView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ViewTemplate.primary(
-        body: const Expanded(
-      child: Center(
-        child: Text('coming soon'),
-      ),
-    ));
+      body: const Center(child: Text('coming soon')),
+    );
   }
 }
