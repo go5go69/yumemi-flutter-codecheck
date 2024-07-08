@@ -36,7 +36,7 @@ class ItemCard extends StatelessWidget {
                 child: AppImage(
                   path: item.owner.avatarUrl,
                   type: ImageType.url,
-                  height: 24,
+                  height: Sizes.p24,
                 ),
               ),
 
