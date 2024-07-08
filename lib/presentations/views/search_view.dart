@@ -74,7 +74,7 @@ class SearchView extends ConsumerWidget {
     required TextEditingController controller,
     required FocusNode focusNode,
     required bool hasFocus,
-    required Future<void> Function() onTapSearch,
+    required Future<void> Function(BuildContext context) onTapSearch,
     required void Function() onTapCancel,
   }) {
     return SliverAppBar(
@@ -120,7 +120,7 @@ class SearchView extends ConsumerWidget {
     TextEditingController controller,
     FocusNode focusNode,
     bool hasFocus,
-    Future<void> Function() onTapSearch,
+    Future<void> Function(BuildContext context) onTapSearch,
     void Function() onTapCancel,
   ) {
     return Row(
@@ -133,7 +133,7 @@ class SearchView extends ConsumerWidget {
             decoration: const InputDecoration(prefixIcon: Icon(Icons.search)),
             onSubmitted: (_) async {
               try {
-                await onTapSearch();
+                await onTapSearch(context);
               } on DioException catch (e) {
                 AppSnackBar.error(
                   context: context,

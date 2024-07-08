@@ -7,6 +7,7 @@ import 'package:yumemi_flutter_codecheck/domain/models/item_model.dart';
 import 'package:yumemi_flutter_codecheck/domain/models/request_param_model.dart';
 import 'package:yumemi_flutter_codecheck/presentations/models/search_view_state.dart';
 import 'package:yumemi_flutter_codecheck/presentations/routes/app_router.dart';
+import 'package:yumemi_flutter_codecheck/utils/app_dialog.dart';
 
 part 'search_view_model.g.dart';
 
@@ -25,12 +26,18 @@ class SearchViewModel extends _$SearchViewModel {
     state = state.copyWith(hasFocus: focusNode.hasFocus);
   }
 
-  Future<void> onTapSearch() async {
+  Future<void> onTapSearch(BuildContext context) async {
+    // indicatorを表示
+    AppDialog.indicator(context);
+
     final githubResRepository = ref.watch(githubResRepositoryProvider);
 
     final res = await githubResRepository.searchRepo(
       RequestParam(q: textInputController.text),
     );
+
+    // indicatorをpop
+    context.pop();
 
     state = state.copyWith(response: res);
   }
