@@ -18,6 +18,7 @@ class SearchView extends ConsumerWidget {
     final pageNotifier = ref.read(searchViewModelProvider.notifier);
     return ViewTemplate.primary(
       body: CustomScrollView(
+        controller: pageNotifier.scrollController,
         // コンテンツの高さがScrollViewを超えた時のみスクロールするようにする
         physics: const BouncingScrollPhysics(),
         slivers: [
@@ -46,6 +47,7 @@ class SearchView extends ConsumerWidget {
                   // itemsが1件以上の場合
                   ? _contentHasResult(
                       pageState.response!.items,
+                      pageState.response!.totalCount,
                       pageNotifier.onTapItem,
                     )
                   // itemsが0件の場合
@@ -182,15 +184,32 @@ class SearchView extends ConsumerWidget {
 
   Widget _contentHasResult(
     List<Item> items,
-    void Function(BuildContext context, Item item) onTap,
+    int totalCount,
+    void Function(BuildContext context, Item item) onTapItemCard,
   ) {
     return SliverList.builder(
-      itemCount: items.length,
+      itemCount: items.length + 1,
       itemBuilder: (BuildContext context, int index) {
-        return InkWell(
-          onTap: () => onTap(context, items[index]),
-          child: ItemCard(item: items[index]),
-        );
+        if (index < items.length) {
+          return InkWell(
+            onTap: () => onTapItemCard(context, items[index]),
+            child: ItemCard(item: items[index]),
+          );
+        } else if (index == items.length && index == totalCount) {
+          // 全件取得した場合
+          return const Padding(
+            padding: EdgeInsets.symmetric(vertical: Sizes.p16),
+            child: Center(child: Text('All results have been displayed.')),
+          );
+        } else {
+          // まだ取得可能なリポジトリがある場合
+          return const SizedBox(
+            height: Sizes.p40,
+            child: Center(
+              child: CircularProgressIndicator.adaptive(),
+            ),
+          );
+        }
       },
     );
   }
