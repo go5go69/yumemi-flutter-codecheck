@@ -8,8 +8,8 @@ import 'package:yumemi_flutter_codecheck/themes/app_text_theme.dart';
 /// リポジトリの詳細を表示
 class ItemDetailContentCard extends StatelessWidget {
   final String assetPath;
-  final String label;
-  final String value;
+  final String label; // 例: Language
+  final String value; // labelに対する値（例: Dart）
   final Color color;
   const ItemDetailContentCard({
     super.key,

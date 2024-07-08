@@ -28,7 +28,7 @@ class SearchViewModel extends _$SearchViewModel {
   Future<void> onTapSearch() async {
     final githubResRepository = ref.watch(githubResRepositoryProvider);
 
-    final res = await githubResRepository.fetch(
+    final res = await githubResRepository.searchRepo(
       RequestParam(q: textInputController.text),
     );
 

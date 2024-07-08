@@ -15,6 +15,7 @@ class RequestParam with _$RequestParam {
     @Default(1) int page,
   }) = _RequestParam;
 
+  // fromJsonを利用する場面はないが、toJson自動生成のために記載
   factory RequestParam.fromJson(Map<String, dynamic> json) =>
       _$RequestParamFromJson(json);
 }

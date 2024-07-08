@@ -12,9 +12,10 @@ class GithubResRepository {
 
   GithubResRepository(this._apiService);
 
-  Future<GitHubResponse> fetch(RequestParam param) async {
+  Future<GitHubResponse> searchRepo(RequestParam param) async {
     try {
-      final json = await _apiService.fetch(param);
+      final path = 'search/repositories';
+      final json = await _apiService.fetch(path, param);
       return GitHubResponse.fromJson(json);
     } catch (e) {
       debugPrint('GithubResRepository: ERROR!!!! >>> $e');
