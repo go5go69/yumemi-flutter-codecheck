@@ -28,33 +28,33 @@ class DioClient {
     } on DioException catch (e) {
       switch (e.type) {
         case DioExceptionType.connectionError:
-          debugPrint('${e.message}');
+          debugPrint('DioClient: DioException >>> ${e.message}');
           rethrow;
         case DioExceptionType.connectionTimeout:
-          debugPrint('${e.message}');
+          debugPrint('DioClient: DioException >>> ${e.message}');
           rethrow;
         case DioExceptionType.sendTimeout:
-          debugPrint('${e.message}');
+          debugPrint('DioClient: DioException >>> ${e.message}');
           rethrow;
         case DioExceptionType.receiveTimeout:
-          debugPrint('${e.message}');
+          debugPrint('DioClient: DioException >>> ${e.message}');
           rethrow;
         case DioExceptionType.badResponse:
-          debugPrint('${e.message}');
+          debugPrint('DioClient: DioException >>> ${e.message}');
           debugPrint('${e.response!.statusMessage}');
           rethrow;
         case DioExceptionType.cancel:
-          debugPrint('${e.message}');
+          debugPrint('DioClient: DioException >>> ${e.message}');
           rethrow;
         case DioExceptionType.badCertificate:
-          debugPrint('${e.message}');
+          debugPrint('DioClient: DioException >>> ${e.message}');
           rethrow;
         case DioExceptionType.unknown:
-          debugPrint('${e.message}');
+          debugPrint('DioClient: DioException >>> ${e.message}');
           rethrow;
       }
     } catch (e) {
-      debugPrint('$e');
+      debugPrint('DioClient: $e');
       rethrow;
     }
   }

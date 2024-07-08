@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yumemi_flutter_codecheck/data/network/dio_client.dart';
@@ -15,8 +16,11 @@ class ApiService {
     try {
       final res = await _dioClient.fetch(path, requestParam);
       return res.data as Map<String, dynamic>;
+    } on DioException catch (e) {
+      debugPrint('ApiService: DioException >>> ${e.message}');
+      rethrow;
     } catch (e) {
-      debugPrint('ApiService: ERROR!!!! >>> $e');
+      debugPrint('ApiService: $e');
       rethrow;
     }
   }

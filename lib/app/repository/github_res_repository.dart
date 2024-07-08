@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yumemi_flutter_codecheck/data/services/api_service.dart';
@@ -17,9 +18,12 @@ class GithubResRepository {
       final path = 'search/repositories';
       final json = await _apiService.fetch(path, param);
       return GitHubResponse.fromJson(json);
+    } on DioException catch (e) {
+      debugPrint('GithubResRepository: DioException >>> ${e.message}');
+      rethrow;
     } catch (e) {
-      debugPrint('GithubResRepository: ERROR!!!! >>> $e');
-      throw Exception('Failed to fetch data');
+      debugPrint('GithubResRepository: $e');
+      rethrow;
     }
   }
 }

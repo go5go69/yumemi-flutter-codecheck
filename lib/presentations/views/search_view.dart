@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yumemi_flutter_codecheck/constants/app_sizes.dart';
@@ -7,6 +8,7 @@ import 'package:yumemi_flutter_codecheck/presentations/views/widgets/item_card.d
 import 'package:yumemi_flutter_codecheck/presentations/views/widgets/view_template.dart';
 import 'package:yumemi_flutter_codecheck/themes/app_color_scheme.dart';
 import 'package:yumemi_flutter_codecheck/themes/app_text_theme.dart';
+import 'package:yumemi_flutter_codecheck/utils/app_snack_bar.dart';
 
 class SearchView extends ConsumerWidget {
   const SearchView({super.key});
@@ -24,6 +26,7 @@ class SearchView extends ConsumerWidget {
 
           // 検索ウィンドウ
           _appBarSearchWindow(
+            context: context,
             controller: pageNotifier.textInputController,
             focusNode: pageNotifier.focusNode,
             hasFocus: pageState.hasFocus,
@@ -67,10 +70,11 @@ class SearchView extends ConsumerWidget {
   }
 
   Widget _appBarSearchWindow({
+    required BuildContext context,
     required TextEditingController controller,
     required FocusNode focusNode,
     required bool hasFocus,
-    required Future<void> Function() onTapSearch,
+    required Future<void> Function(BuildContext context) onTapSearch,
     required void Function() onTapCancel,
   }) {
     return SliverAppBar(
@@ -79,6 +83,7 @@ class SearchView extends ConsumerWidget {
       toolbarHeight: kToolbarHeight + Sizes.p8,
       flexibleSpace: FlexibleSpaceBar(
         background: _searchWindow(
+          context,
           controller,
           focusNode,
           hasFocus,
@@ -111,10 +116,11 @@ class SearchView extends ConsumerWidget {
   }
 
   Widget _searchWindow(
+    BuildContext context,
     TextEditingController controller,
     FocusNode focusNode,
     bool hasFocus,
-    Future<void> Function() onTapSearch,
+    Future<void> Function(BuildContext context) onTapSearch,
     void Function() onTapCancel,
   ) {
     return Row(
@@ -125,7 +131,21 @@ class SearchView extends ConsumerWidget {
             focusNode: focusNode,
             textInputAction: TextInputAction.search,
             decoration: const InputDecoration(prefixIcon: Icon(Icons.search)),
-            onSubmitted: (_) async => await onTapSearch(),
+            onSubmitted: (_) async {
+              try {
+                await onTapSearch(context);
+              } on DioException catch (e) {
+                AppSnackBar.error(
+                  context: context,
+                  message: e.message!,
+                );
+              } catch (e) {
+                AppSnackBar.error(
+                  context: context,
+                  message: e.toString(),
+                );
+              }
+            },
           ),
         ),
         hasFocus || controller.text.isNotEmpty
