@@ -34,6 +34,8 @@ class LanguageSettingView extends ConsumerWidget {
     );
   }
 
+  /// 言語を変更するためのカード
+  /// - 設定中の言語の場合チェックが表示
   InkWell _langSettingCard(
     LangType type,
     String currentLangCode,
@@ -43,9 +45,13 @@ class LanguageSettingView extends ConsumerWidget {
       onTap: () => onTap(type),
       child: SettingCard(
         label: type.toString(),
-        suffixWidget: (currentLangCode == type.name)
-            ? const Icon(Icons.check_circle, color: AppFixedColor.action)
-            : const SizedBox.shrink(),
+        suffixWidget: Visibility(
+          visible: currentLangCode == type.name,
+          maintainState: true,
+          maintainAnimation: true,
+          maintainSize: true,
+          child: const Icon(Icons.check_circle, color: AppFixedColor.action),
+        ),
       ),
     );
   }

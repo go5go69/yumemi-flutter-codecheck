@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:yumemi_flutter_codecheck/constants/app_sizes.dart';
+import 'package:yumemi_flutter_codecheck/extensions/build_context_extension.dart';
 
 // TODO: <MID> enum化して、値に対応するlabelなどを管理するようにするか検討
 
@@ -21,6 +22,8 @@ class ItemDetailContentChip extends StatelessWidget {
         SvgPicture.asset(
           assetPath,
           height: Sizes.p16,
+          // ignore: deprecated_member_use
+          color: context.colorScheme.primary,
         ),
         gapW8,
         Text(value),
