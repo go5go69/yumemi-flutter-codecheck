@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yumemi_flutter_codecheck/constants/app_sizes.dart';
 import 'package:yumemi_flutter_codecheck/domain/models/item_model.dart';
+import 'package:yumemi_flutter_codecheck/extensions/build_context_extension.dart';
 import 'package:yumemi_flutter_codecheck/presentations/view_model/search_view_model.dart';
 import 'package:yumemi_flutter_codecheck/presentations/views/widgets/item_card.dart';
 import 'package:yumemi_flutter_codecheck/presentations/views/widgets/view_template.dart';
@@ -15,7 +15,6 @@ class SearchView extends ConsumerWidget {
   const SearchView({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = L10n.of(context)!;
     final pageState = ref.watch(searchViewModelProvider);
     final pageNotifier = ref.read(searchViewModelProvider.notifier);
     return ViewTemplate.primary(
@@ -25,7 +24,7 @@ class SearchView extends ConsumerWidget {
         physics: const BouncingScrollPhysics(),
         slivers: [
           // 画面タイトル
-          _appBarTitle(l10n.discover),
+          _appBarTitle(context.l10n.discover),
 
           // 検索ウィンドウ
           _appBarSearchWindow(
@@ -50,12 +49,13 @@ class SearchView extends ConsumerWidget {
                   ? _contentHasResult(
                       pageState.response!.items,
                       pageState.response!.totalCount,
+                      context.l10n.displayedAllDesc,
                       pageNotifier.onTapItem,
                     )
                   // itemsが0件の場合
-                  : _contentNoneResult()
+                  : _contentNoneResult(context.l10n.notMatchRepoDesc)
               // 検索前
-              : _contentDefault(l10n.searchViewDesc)
+              : _contentDefault(context.l10n.searchViewDesc)
         ],
       ),
     );
@@ -156,15 +156,15 @@ class SearchView extends ConsumerWidget {
             ? InkWell(
                 borderRadius: BorderRadius.circular(Sizes.p8),
                 onTap: () => onTapCancel(),
-                child: const Padding(
-                  padding: EdgeInsets.only(
+                child: Padding(
+                  padding: const EdgeInsets.only(
                     left: Sizes.p8,
                     top: Sizes.p8,
                     bottom: Sizes.p8,
                   ),
                   child: Text(
-                    'Cancel',
-                    style: TextStyle(color: AppFixedColor.action),
+                    context.l10n.cancel,
+                    style: const TextStyle(color: AppFixedColor.action),
                   ),
                 ),
               )
@@ -187,6 +187,7 @@ class SearchView extends ConsumerWidget {
   Widget _contentHasResult(
     List<Item> items,
     int totalCount,
+    String text,
     void Function(BuildContext context, Item item) onTapItemCard,
   ) {
     return SliverList.builder(
@@ -199,9 +200,9 @@ class SearchView extends ConsumerWidget {
           );
         } else if (index == items.length && index == totalCount) {
           // 全件取得した場合
-          return const Padding(
-            padding: EdgeInsets.symmetric(vertical: Sizes.p16),
-            child: Center(child: Text('All results have been displayed.')),
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: Sizes.p16),
+            child: Center(child: Text(text)),
           );
         } else {
           // まだ取得可能なリポジトリがある場合
@@ -216,10 +217,10 @@ class SearchView extends ConsumerWidget {
     );
   }
 
-  Widget _contentNoneResult() {
+  Widget _contentNoneResult(String text) {
     return SliverList(
       delegate: SliverChildListDelegate(
-        [const Text('Your search did not match any repositories')],
+        [Text(text)],
       ),
     );
   }

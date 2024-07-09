@@ -1,5 +1,19 @@
 {
   "@@locale": "en",
   "discover": "Discover",
-  "searchViewDesc": "Discover\namazing\nrepositories\non GitHub"
+  "searchViewDesc": "Discover\namazing\nrepositories\non GitHub",
+  "cancel": "Cancel",
+  "displayedAllDesc": "All results have been displayed.",
+  "notMatchRepoDesc": "Your search did not match any repositories.",
+  "star": "Star",
+  "fork": "Fork",
+  "issue": "Issue",
+  "watcher": "Watcher",
+  "programLang": "Language",
+  "setting": "Setting",
+  "theme": "Theme",
+  "light": "Light",
+  "dark": "Dark",
+  "system": "System",
+  "language": "Language"
 }

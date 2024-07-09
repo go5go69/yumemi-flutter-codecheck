@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:yumemi_flutter_codecheck/extensions/build_context_extension.dart';
 
 part 'theme_mode_provider.g.dart';
 
@@ -9,6 +10,17 @@ enum ThemeType {
   light,
   dark,
   ;
+
+  String toWord(BuildContext context) {
+    switch (this) {
+      case ThemeType.light:
+        return context.l10n.light;
+      case ThemeType.dark:
+        return context.l10n.dark;
+      case ThemeType.system:
+        return context.l10n.system;
+    }
+  }
 
   ThemeMode toThemeMode() {
     switch (this) {

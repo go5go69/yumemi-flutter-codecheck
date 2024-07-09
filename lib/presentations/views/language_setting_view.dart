@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yumemi_flutter_codecheck/app/providers/language_provider.dart';
+import 'package:yumemi_flutter_codecheck/extensions/build_context_extension.dart';
 import 'package:yumemi_flutter_codecheck/presentations/views/widgets/setting_card.dart';
 import 'package:yumemi_flutter_codecheck/presentations/views/widgets/view_template.dart';
 import 'package:yumemi_flutter_codecheck/themes/app_color_scheme.dart';
@@ -15,7 +16,7 @@ class LanguageSettingView extends ConsumerWidget {
     };
     final languageNotifier = ref.read(languageNotifierProvider.notifier);
     return ViewTemplate.primary(
-      appBar: AppBar(title: const Text('Language')),
+      appBar: AppBar(title: Text(context.l10n.language)),
       body: languageState != null
           // LangTypeの個数分表示する
           ? ListView.builder(

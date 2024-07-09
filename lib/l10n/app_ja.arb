@@ -1,5 +1,19 @@
 {
   "@@locale": "ja",
   "discover": "発見",
-  "searchViewDesc": "GitHubで\n素晴らしい\nリポジトリを\n発見しよう"
+  "searchViewDesc": "GitHubで\n素晴らしい\nリポジトリを\n発見しよう",
+  "cancel": "キャンセル",
+  "displayedAllDesc": "すべての結果が表示されました。",
+  "notMatchRepoDesc": "検索に一致するリポジトリは見つかりませんでした。",
+  "star": "スター",
+  "fork": "フォーク",
+  "issue": "Issue",
+  "watcher": "Watchしているユーザー",
+  "programLang": "言語",
+  "setting": "設定",
+  "theme": "テーマ",
+  "light": "ライト",
+  "dark": "ダーク",
+  "system": "システム",
+  "language": "言語"
 }

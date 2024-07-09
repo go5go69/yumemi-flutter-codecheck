@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yumemi_flutter_codecheck/app/providers/theme_mode_provider.dart';
+import 'package:yumemi_flutter_codecheck/extensions/build_context_extension.dart';
 import 'package:yumemi_flutter_codecheck/presentations/views/widgets/setting_card.dart';
 import 'package:yumemi_flutter_codecheck/presentations/views/widgets/view_template.dart';
 import 'package:yumemi_flutter_codecheck/themes/app_color_scheme.dart';
@@ -15,32 +16,25 @@ class ModeSettingPage extends ConsumerWidget {
     };
     final themeModeNotifier = ref.read(themeModeNotifierProvider.notifier);
     return ViewTemplate.primary(
-      appBar: AppBar(title: const Text('Theme')),
-      body: Column(
-        children: [
-          _themeSettingCard(
-            ThemeType.light,
-            themeModeState,
-            themeModeNotifier.setThemeType,
-          ),
-          _themeSettingCard(
-            ThemeType.dark,
-            themeModeState,
-            themeModeNotifier.setThemeType,
-          ),
-          _themeSettingCard(
-            ThemeType.system,
-            themeModeState,
-            themeModeNotifier.setThemeType,
-          ),
-        ],
-      ),
-    );
+        appBar: AppBar(title: Text(context.l10n.theme)),
+        body: ListView.builder(
+          itemCount: ThemeType.values.length,
+          itemBuilder: (context, index) {
+            final type = ThemeType.values[index];
+            return _themeSettingCard(
+              context,
+              type,
+              themeModeState,
+              themeModeNotifier.setThemeType,
+            );
+          },
+        ));
   }
 
   /// Themeを変更するためのカード
   /// - 設定中のThemeの場合チェックが表示
   InkWell _themeSettingCard(
+    BuildContext context,
     ThemeType type,
     ThemeType currentType,
     Future<void> Function(ThemeType type) onTap,
@@ -48,7 +42,7 @@ class ModeSettingPage extends ConsumerWidget {
     return InkWell(
       onTap: () => onTap(type),
       child: SettingCard(
-        label: type.name,
+        label: type.toWord(context),
         suffixWidget: currentType == type
             ? const Icon(Icons.check_circle, color: AppFixedColor.action)
             : const SizedBox.shrink(),
