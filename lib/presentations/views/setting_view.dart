@@ -19,6 +19,17 @@ class SettingView extends ConsumerWidget {
             child: const SettingCard(
               label: 'Theme',
               suffixWidget: Icon(Icons.navigate_next),
+              prefixWidget: Icon(Icons.contrast),
+            ),
+          ),
+
+          // 言語設定画面へ遷移
+          InkWell(
+            onTap: () => context.push(Routes.language.path),
+            child: const SettingCard(
+              label: 'Language',
+              suffixWidget: Icon(Icons.navigate_next),
+              prefixWidget: Icon(Icons.language),
             ),
           )
         ],

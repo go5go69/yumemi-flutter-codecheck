@@ -7,7 +7,7 @@ class LanguageSettingView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ViewTemplate.primary(
-      appBar: AppBar(),
+      appBar: AppBar(title: const Text('Language')),
       body: const Text('this is language setting view.'),
     );
   }
