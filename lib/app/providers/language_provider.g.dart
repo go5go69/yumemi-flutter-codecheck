@@ -1,26 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'theme_mode_provider.dart';
+part of 'language_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$themeModeNotifierHash() => r'2fb062d7c8f2d6d57a065bf615d060c626540258';
+String _$languageNotifierHash() => r'db0b3f93de2b403486112a1655742b4e34233414';
 
-/// See also [ThemeModeNotifier].
-@ProviderFor(ThemeModeNotifier)
-final themeModeNotifierProvider =
-    AsyncNotifierProvider<ThemeModeNotifier, ThemeType>.internal(
-  ThemeModeNotifier.new,
-  name: r'themeModeNotifierProvider',
+/// See also [LanguageNotifier].
+@ProviderFor(LanguageNotifier)
+final languageNotifierProvider =
+    AsyncNotifierProvider<LanguageNotifier, Locale>.internal(
+  LanguageNotifier.new,
+  name: r'languageNotifierProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$themeModeNotifierHash,
+      : _$languageNotifierHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$ThemeModeNotifier = AsyncNotifier<ThemeType>;
+typedef _$LanguageNotifier = AsyncNotifier<Locale>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
