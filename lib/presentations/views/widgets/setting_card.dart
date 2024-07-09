@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yumemi_flutter_codecheck/constants/app_sizes.dart';
 import 'package:yumemi_flutter_codecheck/themes/app_text_theme.dart';
 
+/// 設定項目の表示に使用
 class SettingCard extends StatelessWidget {
   final String label;
   final Widget suffixWidget;

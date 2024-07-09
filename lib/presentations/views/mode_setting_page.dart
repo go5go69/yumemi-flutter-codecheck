@@ -38,6 +38,8 @@ class ModeSettingPage extends ConsumerWidget {
     );
   }
 
+  /// Themeを変更するためのカード
+  /// - 設定中のThemeの場合チェックが表示
   InkWell _themeSettingCard(
     ThemeType type,
     ThemeType currentType,

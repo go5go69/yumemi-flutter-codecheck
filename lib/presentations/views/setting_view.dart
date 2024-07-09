@@ -13,6 +13,7 @@ class SettingView extends ConsumerWidget {
       appBar: AppBar(title: const Text('Settings')),
       body: Column(
         children: [
+          // Theme設定画面へ遷移
           InkWell(
             onTap: () => context.push(Routes.mode.path),
             child: const SettingCard(
