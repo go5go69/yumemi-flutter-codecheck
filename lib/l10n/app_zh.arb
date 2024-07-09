@@ -5,6 +5,7 @@
   "cancel": "取消",
   "displayedAllDesc": "所有结果已显示。",
   "notMatchRepoDesc": "您的搜索没有匹配到任何仓库。",
+  "resultUnit": "个项目",
   "star": "星标",
   "fork": "派生",
   "issue": "问题",

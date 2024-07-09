@@ -5,6 +5,7 @@
   "cancel": "キャンセル",
   "displayedAllDesc": "すべての結果が表示されました。",
   "notMatchRepoDesc": "検索に一致するリポジトリは見つかりませんでした。",
+  "resultUnit": "件",
   "star": "スター",
   "fork": "フォーク",
   "issue": "Issue",

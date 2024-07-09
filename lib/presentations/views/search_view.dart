@@ -111,7 +111,7 @@ class SearchView extends ConsumerWidget {
             ? Text(
                 // TODO: <LOW> 3桁区切りにする
                 // 例) 1000000 => 1,000,000
-                '$count 件',
+                '$count ${context.l10n.resultUnit}',
                 style: appTextTheme.bodySmall,
               )
             : const SizedBox.shrink(),

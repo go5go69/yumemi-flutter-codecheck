@@ -5,6 +5,7 @@
   "cancel": "Cancelar",
   "displayedAllDesc": "Todos los resultados han sido mostrados.",
   "notMatchRepoDesc": "Tu búsqueda no coincide con ningún repositorio.",
+  "resultUnit": "ítems",
   "star": "Estrella",
   "fork": "Bifurcar",
   "issue": "Problema",

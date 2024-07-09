@@ -5,6 +5,7 @@
   "cancel": "Cancel",
   "displayedAllDesc": "All results have been displayed.",
   "notMatchRepoDesc": "Your search did not match any repositories.",
+  "resultUnit": "items",
   "star": "Star",
   "fork": "Fork",
   "issue": "Issue",
