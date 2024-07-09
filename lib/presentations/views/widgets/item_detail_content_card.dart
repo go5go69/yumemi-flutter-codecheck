@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:yumemi_flutter_codecheck/constants/app_sizes.dart';
+import 'package:yumemi_flutter_codecheck/extensions/build_context_extension.dart';
 import 'package:yumemi_flutter_codecheck/themes/app_text_theme.dart';
 
 // TODO: <MID> enum化して、値に対応するlabelなどを管理するようにするか検討
@@ -24,11 +25,7 @@ class ItemDetailContentCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: Sizes.p12),
       decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: Theme.of(context).colorScheme.outline,
-          ),
-        ),
+        border: Border(bottom: BorderSide(color: context.colorScheme.outline)),
       ),
       child: Row(
         children: [
@@ -44,7 +41,7 @@ class ItemDetailContentCard extends StatelessWidget {
                   height: Sizes.p24,
                   width: Sizes.p24,
                   // ignore: deprecated_member_use
-                  color: Theme.of(context).colorScheme.onPrimary,
+                  color: Colors.white,
                 ),
               ),
             ),

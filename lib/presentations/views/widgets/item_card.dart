@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yumemi_flutter_codecheck/constants/app_sizes.dart';
 import 'package:yumemi_flutter_codecheck/domain/models/item_model.dart';
+import 'package:yumemi_flutter_codecheck/extensions/build_context_extension.dart';
 import 'package:yumemi_flutter_codecheck/presentations/views/widgets/app_image.dart';
 import 'package:yumemi_flutter_codecheck/themes/app_text_theme.dart';
 
@@ -19,11 +20,7 @@ class ItemCard extends StatelessWidget {
         vertical: Sizes.p12,
       ),
       decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: Theme.of(context).colorScheme.outline,
-          ),
-        ),
+        border: Border(bottom: BorderSide(color: context.colorScheme.outline)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
