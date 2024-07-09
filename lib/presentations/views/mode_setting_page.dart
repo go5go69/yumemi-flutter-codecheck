@@ -43,9 +43,13 @@ class ModeSettingPage extends ConsumerWidget {
       onTap: () => onTap(type),
       child: SettingCard(
         label: type.toWord(context),
-        suffixWidget: currentType == type
-            ? const Icon(Icons.check_circle, color: AppFixedColor.action)
-            : const SizedBox.shrink(),
+        suffixWidget: Visibility(
+          visible: currentType == type,
+          maintainState: true,
+          maintainAnimation: true,
+          maintainSize: true,
+          child: const Icon(Icons.check_circle, color: AppFixedColor.action),
+        ),
       ),
     );
   }
