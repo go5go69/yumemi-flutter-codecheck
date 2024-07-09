@@ -8,16 +8,21 @@ part 'language_provider.g.dart';
 /// !!Important!! 列挙の順番は必ず[L10n.supportedLocales]を参照すること
 enum LangType {
   en,
+  es,
   ja,
-  ;
+  zh;
 
   @override
   String toString() {
     switch (this) {
       case en:
         return 'English';
+      case es:
+        return 'Español';
       case ja:
         return '日本語';
+      case zh:
+        return '中文';
       default:
         return '';
     }
