@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yumemi_flutter_codecheck/app/providers/theme_mode_provider.dart';
 import 'package:yumemi_flutter_codecheck/presentations/routes/app_router.dart';
@@ -25,6 +26,9 @@ class App extends ConsumerWidget {
       routerDelegate: goRouter.routerDelegate,
       routeInformationParser: goRouter.routeInformationParser,
       routeInformationProvider: goRouter.routeInformationProvider,
+      localizationsDelegates: L10n.localizationsDelegates,
+      supportedLocales: L10n.supportedLocales,
+      locale: const Locale('en'),
     );
   }
 }

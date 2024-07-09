@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yumemi_flutter_codecheck/constants/app_sizes.dart';
 import 'package:yumemi_flutter_codecheck/domain/models/item_model.dart';
@@ -14,6 +15,7 @@ class SearchView extends ConsumerWidget {
   const SearchView({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = L10n.of(context)!;
     final pageState = ref.watch(searchViewModelProvider);
     final pageNotifier = ref.read(searchViewModelProvider.notifier);
     return ViewTemplate.primary(
@@ -23,7 +25,7 @@ class SearchView extends ConsumerWidget {
         physics: const BouncingScrollPhysics(),
         slivers: [
           // 画面タイトル
-          _appBarTitle(),
+          _appBarTitle(l10n.discover),
 
           // 検索ウィンドウ
           _appBarSearchWindow(
@@ -53,7 +55,7 @@ class SearchView extends ConsumerWidget {
                   // itemsが0件の場合
                   : _contentNoneResult()
               // 検索前
-              : _contentDefault()
+              : _contentDefault(l10n.searchViewDesc)
         ],
       ),
     );
@@ -61,11 +63,11 @@ class SearchView extends ConsumerWidget {
 
   // TODO: <HIGH> 以下、別ファイルに定義するか検討
 
-  Widget _appBarTitle() {
-    return const SliverAppBar(
+  Widget _appBarTitle(String title) {
+    return SliverAppBar(
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: false,
-        title: Text('Discover'),
+        title: Text(title),
         titlePadding: EdgeInsets.zero,
       ),
     );
@@ -171,11 +173,11 @@ class SearchView extends ConsumerWidget {
     );
   }
 
-  Widget _contentDefault() {
+  Widget _contentDefault(String text) {
     return SliverList(
       delegate: SliverChildListDelegate([
         Text(
-          'Discover\namazing\nrepositories\non GitHub',
+          text,
           style: appTextTheme.headlineLarge,
         )
       ]),
