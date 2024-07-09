@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yumemi_flutter_codecheck/extensions/build_context_extension.dart';
 import 'package:yumemi_flutter_codecheck/presentations/views/search_view.dart';
 import 'package:yumemi_flutter_codecheck/presentations/views/setting_view.dart';
 
@@ -21,7 +22,7 @@ class _BottomNavigatorState extends State<BottomNavigator> {
           border: Border(
             top: BorderSide(
               width: 0.5,
-              color: Theme.of(context).colorScheme.outline,
+              color: context.colorScheme.outline,
             ),
           ),
         ),
