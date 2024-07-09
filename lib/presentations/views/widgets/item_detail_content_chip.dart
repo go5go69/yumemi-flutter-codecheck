@@ -21,6 +21,8 @@ class ItemDetailContentChip extends StatelessWidget {
         SvgPicture.asset(
           assetPath,
           height: Sizes.p16,
+          // ignore: deprecated_member_use
+          color: Theme.of(context).colorScheme.primary,
         ),
         gapW8,
         Text(value),

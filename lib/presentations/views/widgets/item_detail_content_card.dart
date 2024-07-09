@@ -44,7 +44,7 @@ class ItemDetailContentCard extends StatelessWidget {
                   height: Sizes.p24,
                   width: Sizes.p24,
                   // ignore: deprecated_member_use
-                  color: Theme.of(context).colorScheme.onPrimary,
+                  color: Colors.white,
                 ),
               ),
             ),
