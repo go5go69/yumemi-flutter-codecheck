@@ -1,7 +1,7 @@
 name: yumemi_flutter_codecheck
 description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-version: 1.0.0+1
+version: 1.1.0
 
 environment:
   sdk: '>=3.4.1 <4.0.0'
