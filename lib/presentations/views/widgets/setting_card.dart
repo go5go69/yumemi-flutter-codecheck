@@ -5,11 +5,13 @@ import 'package:yumemi_flutter_codecheck/themes/app_text_theme.dart';
 /// 設定項目の表示に使用
 class SettingCard extends StatelessWidget {
   final String label;
-  final Widget suffixWidget;
+  final Widget suffixWidget; // Widget右端に表示
+  final Widget? prefixWidget; // Widget左端に表示
   const SettingCard({
     super.key,
     required this.label,
     required this.suffixWidget,
+    this.prefixWidget,
   });
 
   @override
@@ -26,7 +28,13 @@ class SettingCard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: appTextTheme.labelLarge),
+          Row(
+            children: [
+              prefixWidget ?? const SizedBox.shrink(),
+              gapW8,
+              Text(label, style: appTextTheme.labelLarge),
+            ],
+          ),
           suffixWidget,
         ],
       ),

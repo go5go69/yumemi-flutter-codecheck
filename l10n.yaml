@@ -1,0 +1,7 @@
+# 実行コマンド
+# flutter gen-l10n
+
+arb-dir: lib/l10n # ARBファイルを格納するディレクトリを指定
+template-arb-file: app_ja.arb # テンプレートのARBファイルを指定、デフォルトの言語のARBファイルを設定 
+output-class: L10n # 自動生成されるクラス名（デフォルト: AppLocalizations）
+output-localization-file: l10n.dart # 自動生成される言語ファイル名

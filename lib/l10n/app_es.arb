@@ -1,0 +1,20 @@
+{
+  "@@locale": "es",
+  "discover": "Descubrir",
+  "searchViewDesc": "Descubre\nrepositorios\nasombrosos\nen GitHub",
+  "cancel": "Cancelar",
+  "displayedAllDesc": "Todos los resultados han sido mostrados.",
+  "notMatchRepoDesc": "Tu búsqueda no coincide con ningún repositorio.",
+  "resultUnit": "ítems",
+  "star": "Estrella",
+  "fork": "Bifurcar",
+  "issue": "Problema",
+  "watcher": "Observador",
+  "programLang": "Idioma",
+  "setting": "Configuración",
+  "theme": "Tema",
+  "light": "Claro",
+  "dark": "Oscuro",
+  "system": "Sistema",
+  "language": "Idioma"
+}

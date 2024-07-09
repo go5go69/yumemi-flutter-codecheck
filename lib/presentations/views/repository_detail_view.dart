@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yumemi_flutter_codecheck/app/providers/selected_item_provider.dart';
 import 'package:yumemi_flutter_codecheck/constants/app_sizes.dart';
+import 'package:yumemi_flutter_codecheck/extensions/build_context_extension.dart';
 import 'package:yumemi_flutter_codecheck/presentations/views/widgets/item_card.dart';
 import 'package:yumemi_flutter_codecheck/presentations/views/widgets/item_detail_content_card.dart';
 import 'package:yumemi_flutter_codecheck/presentations/views/widgets/item_detail_content_chip.dart';
@@ -31,29 +32,30 @@ class RepositoryDetailView extends ConsumerWidget {
                   gapH16,
                   ItemDetailContentChip(
                     assetPath: 'assets/images/star.svg',
-                    value: '${selectedItem.stargazersCount}',
+                    value:
+                        '${selectedItem.stargazersCount} ${context.l10n.star}',
                   ),
                   gapH4,
                   ItemDetailContentChip(
                     assetPath: 'assets/images/repo-forked.svg',
-                    value: '${selectedItem.forksCount}',
+                    value: '${selectedItem.forksCount}  ${context.l10n.fork}',
                   ),
                   gapH16,
                   ItemDetailContentCard(
                     assetPath: 'assets/images/issue-opened.svg',
-                    label: 'Issue',
+                    label: context.l10n.issue,
                     value: '${selectedItem.openIssuesCount}',
                     color: AppFixedColor.issue,
                   ),
                   ItemDetailContentCard(
                     assetPath: 'assets/images/issue-opened.svg',
-                    label: 'Watcher',
+                    label: context.l10n.watcher,
                     value: '${selectedItem.watchersCount}',
                     color: AppFixedColor.watcher,
                   ),
                   ItemDetailContentCard(
                     assetPath: 'assets/images/code.svg',
-                    label: 'Language',
+                    label: context.l10n.programLang,
                     value: selectedItem.language ?? '-',
                     color: AppFixedColor.language,
                   ),

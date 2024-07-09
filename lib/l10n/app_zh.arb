@@ -1,0 +1,20 @@
+{
+  "@@locale": "zh",
+  "discover": "发现",
+  "searchViewDesc": "发现\n惊人的\nGitHub仓库",
+  "cancel": "取消",
+  "displayedAllDesc": "所有结果已显示。",
+  "notMatchRepoDesc": "您的搜索没有匹配到任何仓库。",
+  "resultUnit": "个项目",
+  "star": "星标",
+  "fork": "派生",
+  "issue": "问题",
+  "watcher": "关注者",
+  "programLang": "语言",
+  "setting": "设置",
+  "theme": "主题",
+  "light": "浅色",
+  "dark": "深色",
+  "system": "系统",
+  "language": "语言"
+}
