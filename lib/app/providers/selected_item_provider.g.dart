@@ -7,7 +7,7 @@ part of 'selected_item_provider.dart';
 // **************************************************************************
 
 String _$selectedItemNotifierHash() =>
-    r'd1b994fb1ccc9404c502c165b54110680d0cdcbd';
+    r'f06d28b375e2d35285e7e9cd6d1eb61d3f29dd1e';
 
 /// See also [SelectedItemNotifier].
 @ProviderFor(SelectedItemNotifier)
